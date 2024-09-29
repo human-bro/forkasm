@@ -5,19 +5,29 @@ run this to deploy a ubuntu docker image on 3001 port
 ```bash
 docker run -d --name=ubuntu-container --security-opt seccomp=unconfined -e PUID=1000 -e PGID=1000 -e TZ=Etc/UTC -e SUBFOLDER=/ -e TITLE="Ubuntu Container" -p 3011:3000 -p 3010:3002 --device /dev/dri:/dev/dri --shm-size="1gb" --restart unless-stopped ubuntu-custom
 ```
-# for launching firefox
+# For launching firefox
 ``` 
 docker run -d --name=firefox --security-opt seccomp=unconfined -e PUID=1000 -e PGID=1000 -e TZ=Etc/UTC -e FIREFOX_CLI=https://google.com -p 3000:3000 -p 3001:3001 --shm-size="1gb" --restart unless-stopped lscr.io/linuxserver/firefox:latest
 ```
 
 
-# for launching linux
+# For launching linux
 
 ```
-docker run -d --name=kali-linux --security-opt seccomp=unconfined -e PUID=1000 -e PGID=1000 -e TZ=Etc/UTC -e SUBFOLDER=/ -e TITLE="Kali Linux" -p 3011:3000 -p 3009:3001 --device /dev/dri:/dev/dri --shm-size="1gb" --restart unless-stopped lscr.io/linuxserver/kali-linux:latest
+docker run -d --name=kali-linux --security-opt seccomp=unconfined -e PUID=1000 -e PGID=1000 -e TZ=Etc/UTC -e SUBFOLDER=/ -e TITLE="Kali Linux" -p 3011:3000 -p 3009:3001 --device /dev/dri:/dev/dri --shm-size="1gb" --restart unless-stopped linuxserver/nextcloud 
 ```
 
+## To host next cloud server
+```
+docker run -d --name=nextcloud --security-opt seccomp=unconfined -e PUID=1000 -e PGID=1000 -e MYSQL_PASSWORD=password -e NEXTCLOUD_ADMIN_USER=admin -e NEXTCLOUD_ADMIN_PASSWORD=admin_password -e TZ=Etc/UTC -p 3011:80 -p 3009:443 --restart unless-stopped -v nextcloud_data:/var/www/html nextcloud
+```
+### [click here to ](https://fleet.linuxserver.io/) to select more images 
 
+## For launching windows
+```
+docker run -d --name=windows-container --security-opt seccomp=unconfined -e PUID=1000 -e PGID=1000 -e TZ=Etc/UTC -p 3011:80 -p 3009:81 --restart unless-stopped 
+```
+zixia/windows
 # Important docker commands
 
 ## To search container images using its name like if you want search about windows images you to pull or alternative images 
@@ -36,6 +46,11 @@ docker pull image_name
 ```
 docker run # to create and run 
 ```
+
+
+
+docker run -d --name=window-container --restart unless-stopped -p 3011:80 -p 3009:81 mcr.microsoft.com/windows/servercore:ltsc2022
+
 
 ## To Stop container
 
