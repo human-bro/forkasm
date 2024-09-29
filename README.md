@@ -21,7 +21,7 @@ docker run -d --name=kali-linux --security-opt seccomp=unconfined -e PUID=1000 -
 ```
 docker run -d --name=nextcloud --security-opt seccomp=unconfined -e PUID=1000 -e PGID=1000 -e MYSQL_PASSWORD=password -e NEXTCLOUD_ADMIN_USER=admin -e NEXTCLOUD_ADMIN_PASSWORD=admin_password -e TZ=Etc/UTC -p 3011:80 -p 3009:443 --restart unless-stopped -v nextcloud_data:/var/www/html nextcloud
 ```
-### [click here to ](https://fleet.linuxserver.io/) to select more images 
+### [click here ](https://fleet.linuxserver.io/) to select more images 
 
 ## For launching windows
 ```
