@@ -17,7 +17,20 @@ docker run -d --name=firefox --security-opt seccomp=unconfined -e PUID=1000 -e P
 docker run -d --name=kali-linux --security-opt seccomp=unconfined -e PUID=1000 -e PGID=1000 -e TZ=Etc/UTC -e SUBFOLDER=/ -e TITLE="Kali Linux" -p 3011:3000 -p 3009:3001 --device /dev/dri:/dev/dri --shm-size="1gb" --restart unless-stopped lscr.io/linuxserver/kali-linux:latest
 ```
 
+
 # Important docker commands
+
+## To search container images using its name like if you want search about windows images you to pull or alternative images 
+
+```
+docker search windows  # here windows is the image name it can be anything 
+```
+
+## To pull images 
+
+```
+docker pull image_name
+```
 
 ## to create container and run
 ```
@@ -54,6 +67,11 @@ docker ps - aq # to get the id of stoped containers
 
 ```
 docker ps -a --format "{{.Names}}"
+```
+
+## To search for a image by name 
+```
+docker search image_name
 ```
 
 ## To list all the existing pulled images 
