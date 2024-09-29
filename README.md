@@ -7,8 +7,10 @@ docker run -d --name=ubuntu-container --security-opt seccomp=unconfined -e PUID=
 ```
 # for launching firefox
 ``` 
-docker run -d -- name=firefox -- security-opt seccomp=unconfined '#optional' -e PUID=1000 -e PGID=1000 -e TZ=Etc/UTC \ -e FIREFOX_CLI=https://academy.networkchuck.com/ -p 3000:3000 -p 3001:3001 -- shm-size="1gb" -- restart unless-stopped lscr.io/linuxserver/firefox:latest
+docker run -d --name=firefox --security-opt seccomp=unconfined -e PUID=1000 -e PGID=1000 -e TZ=Etc/UTC -e FIREFOX_CLI=https://google.com -p 3000:3000 -p 3001:3001 --shm-size="1gb" --restart unless-stopped lscr.io/linuxserver/firefox:latest
 ```
+
+
 # for launching linux
 
 ```
@@ -22,7 +24,19 @@ docker run -d --name=kali-linux --security-opt seccomp=unconfined -e PUID=1000 -
 docker run # to create and run 
 ```
 
-## to list the containers
+## To Stop container
+
+```
+docker stop firefox # container name or id
+```
+
+## If you want restart the container
+
+```
+docker start firefox
+```
+
+## To list the containers
 
 ```
 docker ps  # to list all of the running containers
@@ -54,6 +68,13 @@ docker images
 docker images -q
 ```
 
+## To delete all the images
+
+```
+docker image prune # To remove unused images
+docker image prune -a # all the images
+```
+
 ## To stop all running containers 
 
 ```
@@ -69,7 +90,7 @@ docker rm $(docker ps -aq) # includes running and stoped ones also
 ## To forefully remove the container
 
 ```
-docker rm -f ($docker ps -q)
+docker rm -f $(docker ps -q)
 ```
 
 ## To delete all containers except the running ones or delete all the unused images this will also delete the containers which are not in use
