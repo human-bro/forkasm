@@ -41,4 +41,4 @@ ngrok http 3011
 ```
 ## here 3011 is the port number in which you hosted the kali linux in
 
-## now got ngrok.com and then click on endpoints and then a new link will come that you can use this link anywhere untill codespace is active
+## now go to ngrok.com and then click on endpoints and then a new link will come that you can use this link anywhere untill codespace is active
